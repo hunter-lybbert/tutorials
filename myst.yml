@@ -2,21 +2,51 @@
 version: 1
 project:
   id: d9dffbf0-895f-480d-a321-45a0d8b5e4cf
-  # title: "Data Science Tutorials"
+  title: "Data Science Tutorials"
   # description:
-  # keywords: []
-  # authors: []
+  #   A collection of tutorials for data science.
+  keywords: Data Science, Machine Learning, Python, Causal Inference
+  authors: Hunter Lybbert
   github: https://github.com/hunter-lybbert/tutorials
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   exclude:
   - README.md
+
+  toc:
+    - file: index.md
+    - title: Causal Inference
+      children:
+        - file: causal-inference-01/intro_to_dowhy.ipynb
+
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
-toc:
-  - file: index.md
-  - title: Causal Inference
-    children:
-      - file: causal-inference-01/intro_to_dowhy.ipynb
+  title: Data Science Tutorials
+  
+  # Theme options & logo customization
+  options:
+    favicon: _static/favicon.png
+    css: _static/custom.css
+    logo: _static/favicon.png
+    # Moves or hides default branding elements
+    hide_footer_myst: false  # Keeps attribution strictly in the footer, off the main header
+
+  # Navigation links displayed in the top bar
+  actions:
+    - title: Home
+      url: https://hunterlybbert.com/
+    - title: About
+      url: https://hunterlybbert.com/about
+    - title: Projects
+      url: https://hunterlybbert.com/projects
+    - title: Tutorials
+      url: https://tutorials.hunterlybbert.com/
+    - title: Resume
+      url: https://hunterlybbert.com/resume
+
+  # nav:
+  #   - title: Overview
+  #     url: index.md
+  #   - title: Causal Inference
+  #     children:
+  #       - title: Intro to DoWhy
+  #         url: causal-inference-01/intro_to_dowhy.ipynb

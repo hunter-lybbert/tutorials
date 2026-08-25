@@ -1,0 +1,40 @@
+/* 1. Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 2. Base Light Mode Variables (matching hunterlybbert.com) */
+:root {
+    --myst-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --myst-font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --myst-color-background: #ffffff;
+    --myst-color-on-background: #1f2933;
+    --myst-color-surface: #ffffff;
+    --myst-color-primary: #2563eb;
+    --myst-color-link: #2563eb;
+    --myst-color-link-hover: #1d4ed8;
+    --myst-color-border: #e5e7eb;
+}
+
+/* 3. Dark Mode Theme Overrides */
+html[data-theme="dark"], body.dark {
+    --myst-color-background: #111827;
+    --myst-color-on-background: #f9fafb;
+    --myst-color-surface: #1f2937;
+    --myst-color-primary: #60a5fa;
+    --myst-color-link: #60a5fa;
+    --myst-color-link-hover: #93c5fd;
+    --myst-color-border: #374151;
+}
+
+/* 4. Global Typography Overrides */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}
+
+/* Hide extra top header badge/logo icons */
+header .myst-logo, 
+header .badge {
+    display: none !important;
+}
+
