@@ -1,0 +1,22 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: d9dffbf0-895f-480d-a321-45a0d8b5e4cf
+  # title: "Data Science Tutorials"
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/hunter-lybbert/tutorials
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  exclude:
+  - README.md
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
+toc:
+  - file: index.md
+  - title: Causal Inference
+    children:
+      - file: causal-inference-01/intro_to_dowhy.ipynb
