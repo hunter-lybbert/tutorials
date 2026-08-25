@@ -3,7 +3,7 @@ name: Test Jupyter Book
 on:
   push:
     branches:
-      - migrate-to-jupyterbook
+      - migrate-tutorials-to-jupyterbook
 
 jobs:
   build:
