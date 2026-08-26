@@ -1,69 +1,124 @@
-/* 1. Import Inter Font */
+/* _static/custom.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* 2. Base Light Mode Variables (matching hunterlybbert.com) */
-:root {
-    --myst-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --myst-font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+/* ==========================================================================
+   1. Theme Variable Overrides (Matches personal site color palette)
+   ========================================================================== */
 
-    --myst-color-background: #ffffff;
-    --myst-color-on-background: #1f2933;
-    --myst-color-surface: #ffffff;
-    --myst-color-primary: #2563eb;
-    --myst-color-link: #2563eb;
-    --myst-color-link-hover: #1d4ed8;
-    --myst-color-border: #e5e7eb;
+html[data-theme="light"] {
+    --pst-color-background: #ffffff;
+    --pst-color-surface: #f9fafb;
+    --pst-color-text-base: #1f2933;
+    --pst-color-text-muted: #4b5563;
+    --pst-color-link: #2563eb;
+    --pst-color-link-hover: #1d4ed8;
+    --pst-color-border: #e5e7eb;
 }
 
-/* 3. Dark Mode Theme Overrides */
-html[data-theme="dark"], body.dark {
-    --myst-color-background: #111827;
-    --myst-color-on-background: #f9fafb;
-    --myst-color-surface: #1f2937;
-    --myst-color-primary: #60a5fa;
-    --myst-color-link: #60a5fa;
-    --myst-color-link-hover: #93c5fd;
-    --myst-color-border: #374151;
+html[data-theme="dark"] {
+    --pst-color-background: #111827;
+    --pst-color-surface: #1f2937;
+    --pst-color-text-base: #f9fafb;
+    --pst-color-text-muted: #9ca3af;
+    --pst-color-link: #60a5fa;
+    --pst-color-link-hover: #93c5fd;
+    --pst-color-border: #374151;
 }
 
-/* 4. Global Typography Overrides */
+/* ==========================================================================
+   2. Typography & Layout Base
+   ========================================================================== */
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif !important;
     line-height: 1.7;
 }
 
-/* Hide extra top header badge/logo icons */
-header .myst-logo, 
-header .badge {
-    display: none !important;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter", sans-serif !important;
+    letter-spacing: -0.03em;
 }
 
-/* Lock header height */
+/* ==========================================================================
+   3. Top Header & Navbar Link Styling (Matches portfolio nav)
+   ========================================================================== */
+
 .bd-header {
-  height: 64px !important;
-  max-height: 64px !important;
-  border-bottom: 1px solid #e5e7eb;
+    background-color: var(--pst-color-background) !important;
+    border-bottom: 1px solid var(--pst-color-border) !important;
+    box-shadow: none !important;
 }
 
-/* Float custom navigation to the upper right of the header bar */
-.custom-global-nav {
-  position: absolute;
-  top: 0;
-  right: 1.5rem;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  z-index: 1000; /* Ensures links remain clickable above the header background */
+/* Base Nav Links */
+.bd-header .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--pst-color-text-muted) !important;
+    padding: 0.4rem 0.75rem;
+    transition: color 0.15s ease-in-out;
 }
 
-.custom-global-nav a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #374151;
-  transition: color 0.15s ease-in-out;
+/* Hover State */
+.bd-header .navbar-nav .nav-link:hover {
+    color: var(--pst-color-link) !important;
+    text-decoration: none;
 }
 
-.custom-global-nav a:hover {
-  color: #2563eb;
+/* Active Nav Item ("Tutorials") */
+.bd-header .navbar-nav .nav-item.active .nav-link {
+    color: var(--pst-color-text-base) !important;
+    font-weight: 600;
+}
+
+/* Theme Toggle Button Styling */
+.theme-switch-button {
+    background-color: var(--pst-color-surface) !important;
+    border: 1px solid var(--pst-color-border) !important;
+    border-radius: 50% !important;
+    width: 36px;
+    height: 36px;
+}
+
+/* ==========================================================================
+   4. Left Sidebar Navigation Styling
+   ========================================================================== */
+
+.bd-sidebar {
+    background-color: var(--pst-color-background) !important;
+    border-right: none !important;
+}
+
+.bd-sidebar .nav-link {
+    font-size: 0.95rem;
+    color: var(--pst-color-text-muted);
+}
+
+.bd-sidebar .nav-item.active > .nav-link {
+    background-color: transparent !important;
+    font-weight: 600;
+    color: var(--pst-color-link) !important;
+    border-left: 2px solid var(--pst-color-link);
+}
+
+/* Clean up search bar input in sidebar */
+.bd-sidebar .bd-search input {
+    background-color: var(--pst-color-surface);
+    border: 1px solid var(--pst-color-border);
+    border-radius: 6px;
+    color: var(--pst-color-text-base);
+}
+
+/* Remove external link icons in top header navigation */
+.bd-header .navbar-nav .nav-link::after,
+.bd-header .navbar-nav .nav-link i,
+.bd-header .navbar-nav .nav-link svg,
+.bd-header .navbar-nav a.external::after,
+.bd-header .navbar-nav a[target="_blank"]::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }

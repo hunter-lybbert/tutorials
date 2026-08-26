@@ -1,7 +1,0 @@
-format: jb-book
-root: index
-
-parts:
-  - caption: Causal Inference
-    chapters:
-      - file: causal-inference-01/intro_to_dowhy
