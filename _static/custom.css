@@ -45,8 +45,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .bd-header {
     background-color: var(--pst-color-background) !important;
-    border-bottom: 1px solid var(--pst-color-border) !important;
+    border-bottom: none !important; /* Kept from your override at the bottom */
     box-shadow: none !important;
+}
+
+/* Match your portfolio's flex layout and spacing */
+.bd-header .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 30px; /* Applies your portfolio's exact gap */
+    margin: 0;
+}
+
+/* Override default bootstrap item margins so the gap property takes full effect */
+.bd-header .navbar-nav .nav-item {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 /* Base Nav Links */
@@ -55,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
     font-weight: 500;
     color: var(--pst-color-text-muted) !important;
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0 !important; /* Removed horizontal padding since 'gap' handles the spacing */
     transition: color 0.15s ease-in-out;
 }
 
@@ -65,19 +80,11 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-/* Active Nav Item ("Tutorials") */
-.bd-header .navbar-nav .nav-item.active .nav-link {
+/* Active Nav Item */
+.bd-header .navbar-nav .nav-item.active .nav-link,
+.bd-header .navbar-nav .nav-link[aria-current="page"] {
     color: var(--pst-color-text-base) !important;
     font-weight: 600;
-}
-
-/* Theme Toggle Button Styling */
-.theme-switch-button {
-    background-color: var(--pst-color-surface) !important;
-    border: 1px solid var(--pst-color-border) !important;
-    border-radius: 50% !important;
-    width: 36px;
-    height: 36px;
 }
 
 /* ==========================================================================
@@ -123,6 +130,16 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 !important;
 }
 
+/* Base Nav Links - explicitly matching portfolio typography */
+.bd-header .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif !important;
+    font-size: 1rem !important;        /* Matches standard browser 16px body default */
+    font-weight: 500 !important;       /* Matches your nav a font-weight: 500 */
+    color: var(--pst-color-text-muted) !important;
+    padding: 0 !important;             /* Keeps the flex gap spacing clean */
+    line-height: 1.5 !important;
+}
+
 /* Sets the active/current navbar tab text color to white */
 .bd-header .navbar-nav .nav-item .nav-link.active,
 .bd-header .navbar-nav .nav-item .nav-link[aria-current="page"],
@@ -134,4 +151,37 @@ h1, h2, h3, h4, h5, h6 {
 .bd-header .navbar-nav .nav-item .nav-link:hover,
 .bd-header .navbar-nav .external-link:hover {
     color: #ffffff !important;
+}
+
+header.bd-header, .bd-header {
+  border-bottom: none !important;
+}
+
+/* ==========================================================================
+   5. Header-Only Width Alignment (Matches Portfolio 1000px Layout)
+   ========================================================================== */
+
+/* Target the core header container and inner wrappers used by the PyData theme */
+header.bd-header .bd-header__inner,
+header.bd-header .bd-container,
+header.bd-header .header-article-container,
+.bd-header .header-main {
+    max-width: 1000px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 0px !important;    /* Matches your body's top padding */
+    padding-bottom: 0px !important;
+}
+
+/* Base Nav Links - explicitly matching portfolio typography */
+.bd-header .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif !important;
+    font-size: 1rem !important;        /* Matches standard browser 16px body default */
+    font-weight: 500 !important;       /* Matches your nav a font-weight: 500 */
+    color: var(--pst-color-text-muted) !important;
+    padding: 0 !important;             /* Keeps the flex gap spacing clean */
+    line-height: 1.5 !important;
 }
