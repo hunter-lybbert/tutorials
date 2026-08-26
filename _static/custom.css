@@ -38,3 +38,32 @@ header .badge {
     display: none !important;
 }
 
+/* Lock header height */
+.bd-header {
+  height: 64px !important;
+  max-height: 64px !important;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Float custom navigation to the upper right of the header bar */
+.custom-global-nav {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1000; /* Ensures links remain clickable above the header background */
+}
+
+.custom-global-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #374151;
+  transition: color 0.15s ease-in-out;
+}
+
+.custom-global-nav a:hover {
+  color: #2563eb;
+}
