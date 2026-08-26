@@ -135,12 +135,10 @@ header.bd-header .header-article-container,
    Active State Fix for Tutorials Navbar Header
    ========================================================================== */
 
-/* Target active/current links across all possible PyData states */
-header.bd-header .navbar-nav .nav-item.current > a.nav-link,
-header.bd-header .navbar-nav .nav-item.active > a.nav-link,
-header.bd-header .navbar-nav a.nav-link.current,
-header.bd-header .navbar-nav a.nav-link.active,
-header.bd-header .navbar-nav a.nav-link[aria-current="page"] {
+/* Force the Tutorials navigation link to be active/highlighted on every page */
+header.bd-header .navbar-nav a.nav-link[href*="index"],
+header.bd-header .navbar-nav a.nav-link[href="./"],
+header.bd-header .navbar-nav a.nav-link[href="/"] {
     color: var(--pst-color-text-base) !important;
     font-weight: 600 !important;
 }

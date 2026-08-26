@@ -22,9 +22,12 @@ nb_execution_mode = "off"
 
 html_theme = "pydata_sphinx_theme"
 html_title = ""
+# The path is relative to your html_static_path (usually '_static')
+html_favicon = "_static/favicon.png"
 
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
+html_js_files = ["custom.js"]
 templates_path = ["_templates"]
 
 # conf.py
