@@ -122,3 +122,16 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+/* Sets the active/current navbar tab text color to white */
+.bd-header .navbar-nav .nav-item .nav-link.active,
+.bd-header .navbar-nav .nav-item .nav-link[aria-current="page"],
+.bd-header .navbar-nav .external-link.active {
+    color: #ffffff !important;
+}
+
+/* Optional: Make the text white on hover too if desired */
+.bd-header .navbar-nav .nav-item .nav-link:hover,
+.bd-header .navbar-nav .external-link:hover {
+    color: #ffffff !important;
+}
