@@ -14,6 +14,8 @@ exclude_patterns = [
     "README.md",             # Prevents Sphinx from expecting README.md in a toctree
     "**.ipynb_checkpoints",
     "templates",
+    ".aider*",
+    ".DS_Store",
 ]
 
 nb_execution_mode = "off"
@@ -31,15 +33,15 @@ html_theme_options = {
     # -------------------------------------------------------------------------
     # 1. NAVBAR SLOTS (Fixes duplicate header links & removes top search bar)
     # -------------------------------------------------------------------------
-    "navbar_start": ["navbar-logo"],
-    "navbar_center": ["navbar-nav"],          # Only renders your external_links
-    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "navbar_start": [],
+    "navbar_center": ["custom-navbar"],          # Only renders your external_links
+    "navbar_end": ["theme-switcher"],
     "navbar_persistent": [],                  # REMOVES the top-right search button
+    "navbar_align": "right",
     
     # -------------------------------------------------------------------------
     # 2. TOP NAVIGATION LINKS
     # -------------------------------------------------------------------------
-    "navbar_align": "right",
     "external_links": [
         {"name": "Home", "url": "https://hunterlybbert.com/"},
         {"name": "About", "url": "https://hunterlybbert.com/about"},
@@ -49,7 +51,7 @@ html_theme_options = {
     ],
     
     # Prevents Sphinx from creating top-level "super heading" links from your docs
-    "show_nav_level": 0, 
+    "show_nav_level": -1, 
 
     # Social links
     # "icon_links": [

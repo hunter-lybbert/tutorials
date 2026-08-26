@@ -40,83 +40,84 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   3. Top Header & Navbar Link Styling (Matches portfolio nav)
+   3. Top Header & Navbar
    ========================================================================== */
 
 .bd-header {
     background-color: var(--pst-color-background) !important;
-    border-bottom: none !important; /* Kept from your override at the bottom */
+    border-bottom: none !important;
     box-shadow: none !important;
 }
 
-/* Match your portfolio's flex layout and spacing */
+/* Align header with portfolio's 1000px body + 20px horizontal padding */
+header.bd-header .bd-header__inner,
+header.bd-header .bd-container,
+header.bd-header .header-article-container,
+.bd-header .header-main {
+    max-width: 1000px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 11px !important;  /* Changed from 20px to match portfolio */
+    padding-right: 11px !important; /* Changed from 20px to match portfolio */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 .bd-header .navbar-nav {
     display: flex;
-    justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 30px; /* Applies your portfolio's exact gap */
+    gap: 30px;
     margin: 0;
 }
 
-/* Override default bootstrap item margins so the gap property takes full effect */
 .bd-header .navbar-nav .nav-item {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 
-/* Base Nav Links */
-.bd-header .navbar-nav .nav-link {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+/* .bd-header .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
     color: var(--pst-color-text-muted) !important;
-    padding: 0.4rem 0 !important; /* Removed horizontal padding since 'gap' handles the spacing */
+    padding: 0 !important;
+    line-height: 1.7 !important;
     transition: color 0.15s ease-in-out;
+} */
+
+.bd-header .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    line-height: 27.2px !important;
+    color: var(--pst-color-text-muted) !important;
+    padding: 0 !important;
+    height: 36px !important;
+    transition: color 0.15s ease-in-out;
+    display: block !important;
 }
 
-/* Hover State */
+.bd-header .navbar-header-items__center {
+    margin-right: 30px !important;
+}
+
+.bd-header .navbar-header-items__center > .navbar-item {
+    transform: translateY(10px);
+}
+
 .bd-header .navbar-nav .nav-link:hover {
     color: var(--pst-color-link) !important;
     text-decoration: none;
 }
 
-/* Active Nav Item */
 .bd-header .navbar-nav .nav-item.active .nav-link,
 .bd-header .navbar-nav .nav-link[aria-current="page"] {
     color: var(--pst-color-text-base) !important;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
-/* ==========================================================================
-   4. Left Sidebar Navigation Styling
-   ========================================================================== */
-
-.bd-sidebar {
-    background-color: var(--pst-color-background) !important;
-    border-right: none !important;
-}
-
-.bd-sidebar .nav-link {
-    font-size: 0.95rem;
-    color: var(--pst-color-text-muted);
-}
-
-.bd-sidebar .nav-item.active > .nav-link {
-    background-color: transparent !important;
-    font-weight: 600;
-    color: var(--pst-color-link) !important;
-    border-left: 2px solid var(--pst-color-link);
-}
-
-/* Clean up search bar input in sidebar */
-.bd-sidebar .bd-search input {
-    background-color: var(--pst-color-surface);
-    border: 1px solid var(--pst-color-border);
-    border-radius: 6px;
-    color: var(--pst-color-text-base);
-}
-
-/* Remove external link icons in top header navigation */
+/* Remove external-link indicators from top navigation */
 .bd-header .navbar-nav .nav-link::after,
 .bd-header .navbar-nav .nav-link i,
 .bd-header .navbar-nav .nav-link svg,
@@ -130,58 +131,16 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 !important;
 }
 
-/* Base Nav Links - explicitly matching portfolio typography */
-.bd-header .navbar-nav .nav-link {
-    font-family: "Inter", sans-serif !important;
-    font-size: 1rem !important;        /* Matches standard browser 16px body default */
-    font-weight: 500 !important;       /* Matches your nav a font-weight: 500 */
-    color: var(--pst-color-text-muted) !important;
-    padding: 0 !important;             /* Keeps the flex gap spacing clean */
-    line-height: 1.5 !important;
-}
-
-/* Sets the active/current navbar tab text color to white */
-.bd-header .navbar-nav .nav-item .nav-link.active,
-.bd-header .navbar-nav .nav-item .nav-link[aria-current="page"],
-.bd-header .navbar-nav .external-link.active {
-    color: #ffffff !important;
-}
-
-/* Optional: Make the text white on hover too if desired */
-.bd-header .navbar-nav .nav-item .nav-link:hover,
-.bd-header .navbar-nav .external-link:hover {
-    color: #ffffff !important;
-}
-
-header.bd-header, .bd-header {
-  border-bottom: none !important;
-}
-
 /* ==========================================================================
-   5. Header-Only Width Alignment (Matches Portfolio 1000px Layout)
+   Active State Fix for Tutorials Navbar Header
    ========================================================================== */
 
-/* Target the core header container and inner wrappers used by the PyData theme */
-header.bd-header .bd-header__inner,
-header.bd-header .bd-container,
-header.bd-header .header-article-container,
-.bd-header .header-main {
-    max-width: 1000px !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    padding-top: 0px !important;    /* Matches your body's top padding */
-    padding-bottom: 0px !important;
-}
-
-/* Base Nav Links - explicitly matching portfolio typography */
-.bd-header .navbar-nav .nav-link {
-    font-family: "Inter", sans-serif !important;
-    font-size: 1rem !important;        /* Matches standard browser 16px body default */
-    font-weight: 500 !important;       /* Matches your nav a font-weight: 500 */
-    color: var(--pst-color-text-muted) !important;
-    padding: 0 !important;             /* Keeps the flex gap spacing clean */
-    line-height: 1.5 !important;
+/* Target active/current links across all possible PyData states */
+header.bd-header .navbar-nav .nav-item.current > a.nav-link,
+header.bd-header .navbar-nav .nav-item.active > a.nav-link,
+header.bd-header .navbar-nav a.nav-link.current,
+header.bd-header .navbar-nav a.nav-link.active,
+header.bd-header .navbar-nav a.nav-link[aria-current="page"] {
+    color: var(--pst-color-text-base) !important;
+    font-weight: 600 !important;
 }
